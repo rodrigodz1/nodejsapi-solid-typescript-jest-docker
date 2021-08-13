@@ -4,6 +4,7 @@ import cors from 'cors';
 import routes from './routes';
 import AppError from '@shared/errors/AppError';
 import * as dotenv from 'dotenv';
+import '@shared/typeorm';
 
 dotenv.config();
 
