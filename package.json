@@ -1,14 +1,16 @@
 {
-  "name": "CURSO_UDEMY",
+  "name": "curso_udemy",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/shared/http/server.ts",
+    "dev": "tsnd -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --inspect -- src/shared/http/server.ts",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
     "@types/node": "^16.6.1",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
     "@typescript-eslint/parser": "^4.29.1",
@@ -17,6 +19,12 @@
     "eslint-plugin-prettier": "^3.4.0",
     "prettier": "^2.3.2",
     "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.10.1",
     "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1"
   }
 }
