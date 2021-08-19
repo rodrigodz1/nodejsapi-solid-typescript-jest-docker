@@ -1,0 +1,21 @@
+Princípios SOLID
+S - Single Responsability Principle:
+Uma classe deve servir a apenas um propósito.
+
+O - Open Closed Principle:
+A medida que um software vai evoluindo, não devemos editar ou adicionar mais funcionalidades a uma classe existente. Devemos estender essa classe ou criar uma outra classe para criar mais funcionalidades. Aberto para estensão, mas fechado para alteração.
+
+L - Liskov Substitution Principle:
+Poder substituir classes base por classes derivadas.
+
+I - Interface segregation:
+Muitas classes específicas são melhores que uma única interface. 
+
+D - Dependency Inversion Principple:
+Uma classe deve depender de abstrações, não de implementações.
+
+Aplicando os princípios SOLID, evitamos:
+- Dificuldade em testar aplicação;
+- Código macarrão, sem estrutura ou padrão;
+- Dificuldade em isolar funcionalidades;
+- Fragilidade, o código quebra facilmente após alguma mudança.

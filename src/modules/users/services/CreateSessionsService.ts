@@ -1,15 +1,11 @@
 import AppError from '@shared/errors/AppError';
 import { compare, hash } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
-import authConfig from '@configs/auth'
+import authConfig from '@configs/auth';
 import { getCustomRepository } from 'typeorm';
-import User from '../typeorm/entities/User';
-import { UserRepository } from '../typeorm/repositories/UsersRepository';
-
-interface IRequest {
-  email: string;
-  password: string;
-}
+import { ICreateUser } from '../domain/models/ICreateUser';
+import User from '../infra/typeorm/entities/User';
+import { UserRepository } from '../infra/typeorm/repositories/UsersRepository';
 
 interface IResponse {
   user: User;
@@ -17,7 +13,7 @@ interface IResponse {
 }
 
 class CreateSessionsService {
-  public async execute({ email, password }: IRequest): Promise<IResponse> {
+  public async execute({ email, password }: ICreateUser): Promise<IResponse> {
     const usersRepository = getCustomRepository(UserRepository);
 
     const user = await usersRepository.findByEmail(email);
@@ -32,12 +28,12 @@ class CreateSessionsService {
 
     const token = sign({}, authConfig.jwt.secret, {
       subject: user.id,
-      expiresIn: authConfig.jwt.expiresIn
-    })
+      expiresIn: authConfig.jwt.expiresIn,
+    });
 
     return {
       user,
-      token
+      token,
     };
   }
 }
