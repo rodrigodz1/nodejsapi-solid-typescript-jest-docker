@@ -13,7 +13,7 @@ class CreateCustomerService {
       throw new AppError('Email address already used.');
     }
 
-    const customer = customersRepository.create({
+    const customer = await customersRepository.create({
       name,
       email,
     });
